@@ -6,7 +6,7 @@ use App\Controller\ApiController;
 
 $r3 = new Router;
 
-$r3->get('/users/*', function($screenName) {
+$r3->get('/users/*/*', function($user, $pass) {
 	$ApiController = new ApiController;
-    $ApiController->run();
+    $ApiController->checkUserAndPass($user, $pass);
 });
