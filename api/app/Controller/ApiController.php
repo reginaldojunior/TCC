@@ -33,4 +33,26 @@ class ApiController
         return true;
 	}
 
+	public function createLatAndLogWithUserId($latitude, $logitude, $userId)
+	{
+
+    	$tracking         	  = new \stdClass();
+
+		$tracking->latitude	  = $latitude;
+		$tracking->logitude   = $logitude;
+		$tracking->user_id    = $userId;
+		
+		$response = $this->Database->getMapper()->tracking->persist($tracking);
+	    $this->Database->getMapper()->flush();
+
+	    if ($response)
+	    {
+	    	echo json_encode(['status' => $tracking]);
+	    	exit;
+	    }
+
+	    echo json_encode(['status' => false]);
+	    exit;
+	}
+
 }
