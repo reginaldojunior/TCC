@@ -20,3 +20,10 @@ $r3->any('/lat/*/log/*/user/*', function ($latitude, $logitude, $userId)
 	    // eu te amo vem fica comigo 
 	}
 );
+
+$r3->get('/lastlocations/user/*', function($userId)
+	{
+		$ApiController = new ApiController;
+		$ApiController->getLastLocations($userId);
+	}
+);

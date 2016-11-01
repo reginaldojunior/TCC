@@ -43,6 +43,7 @@ class ApiController
 		$tracking->user_id    = $userId;
 		
 		$response = $this->Database->getMapper()->tracking->persist($tracking);
+	    
 	    $this->Database->getMapper()->flush();
 
 	    if ($response)
@@ -53,6 +54,14 @@ class ApiController
 
 	    echo json_encode(['status' => false]);
 	    exit;
+	}
+
+	public function getLastLocations($userId)
+	{
+		$response = $this->Database->getMapper()->tracking(['user_id' => $userId])->fetchAll();
+
+		echo json_encode($response);
+		exit;
 	}
 
 }
