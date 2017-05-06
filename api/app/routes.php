@@ -12,10 +12,10 @@ $r3->get('/users/*/*', function($user, $pass) {
 });
 
 
-$r3->any('/lat/*/log/*/user/*', function ($latitude, $logitude, $userId) 
+$r3->any('/lat/log/user/*', function ($userId) 
 	{
 	    $ApiController = new ApiController;
-	    $ApiController->createLatAndLogWithUserId($latitude, $logitude, $userId);
+	    $ApiController->createLatAndLogWithUserId($_GET['latitude'], $_GET['logitude'], $userId);
 
 	    // eu te amo vem fica comigo 
 	}
