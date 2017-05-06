@@ -54,6 +54,9 @@ void loop()
   while (serialgps.available())
   {
     int c = serialgps.read();
+    char lat[25];
+    char log[25];
+
     if (gps.encode(c))
     {
       float latitude, longitude;
@@ -75,6 +78,8 @@ void loop()
         return;
       }
 
+      dtostrf(latitude, 6, 2, lat);
+      dtostrf(longitude, 6, 2, log);
       // We now create a URI for the request
       String url = "/lat/" + latitude + "/log/" + longitude + "/user/1";
 
@@ -97,7 +102,7 @@ void loop()
 
       Serial.println();
       Serial.println("closing connection");
-      
+
       Serial.print("Latitud/Longitud: ");
       Serial.print(latitude, 5);
       Serial.print(", ");
