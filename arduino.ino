@@ -49,47 +49,6 @@ void setup()
   Serial.println("");
 }
 
-void sendRequest(lat, log) 
-{
-  delay(5000);
-  ++value;
-
-  Serial.print("connecting to ");
-  Serial.println(host);
-
-  // Use WiFiClient class to create TCP connections
-  WiFiClient client;
-  const int httpPort = 8000;
-  Serial.println(client.connect(host, httpPort));
-  if (!client.connect(host, httpPort)) {
-    Serial.println("connection failed");
-    return;
-  }
-
-  // We now create a URI for the request
-  String url = "/lat/" + lat + "/log/" + log + "/user/1";
-
-  Serial.print("Requesting URL: ");
-  Serial.println(url);
-
-  // This will send the request to the server
-  client.print(String("GET ") + url + " HTTP/1.1\r\n" +
-               "Host: " + host + "\r\n" + 
-               "Connection: close\r\n\r\n");
-  
-  delay(10);
-
-  // Read all the lines of the reply from server and print them to Serial
-  Serial.println("Respond:");
-  while(client.available()){
-    String line = client.readStringUntil('\r');
-    Serial.print(line);
-  }
-
-  Serial.println();
-  Serial.println("closing connection");
-}
-
 void loop()
 {
   while (serialgps.available())
@@ -101,8 +60,44 @@ void loop()
       
       gps.f_get_position(&latitude, &longitude);
 
-      sendRequest(latitude, longitude);
+      delay(5000);
+      ++value;
 
+      Serial.print("connecting to ");
+      Serial.println(host);
+
+      // Use WiFiClient class to create TCP connections
+      WiFiClient client;
+      const int httpPort = 8000;
+      Serial.println(client.connect(host, httpPort));
+      if (!client.connect(host, httpPort)) {
+        Serial.println("connection failed");
+        return;
+      }
+
+      // We now create a URI for the request
+      String url = "/lat/" + latitude + "/log/" + longitude + "/user/1";
+
+      Serial.print("Requesting URL: ");
+      Serial.println(url);
+
+      // This will send the request to the server
+      client.print(String("GET ") + url + " HTTP/1.1\r\n" +
+                   "Host: " + host + "\r\n" + 
+                   "Connection: close\r\n\r\n");
+      
+      delay(10);
+
+      // Read all the lines of the reply from server and print them to Serial
+      Serial.println("Respond:");
+      while(client.available()){
+        String line = client.readStringUntil('\r');
+        Serial.print(line);
+      }
+
+      Serial.println();
+      Serial.println("closing connection");
+      
       Serial.print("Latitud/Longitud: ");
       Serial.print(latitude, 5);
       Serial.print(", ");
