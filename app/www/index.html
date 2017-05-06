@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+  
+        <title>TCC</title>
+    </head>
+    <body>
+        <div class="container-flex">
+            <div class="row">
+                <div class="col s12 background">        
+                    <div class="container">
+                        
+                        <!-- Page Content goes here -->
+                        <h1 style="margin-top: 40px;">TCC</h1>
+
+                        <p>Rastreio de Veículos</p>
+
+                        <div id="signin">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="email-signin" type="text" class="validate">
+                                    <label for="email-signin">Email</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="senha-signin" type="password" class="validate">
+                                    <label for="senha-sigin">Senha</label>
+                                </div>
+                            </div>
+
+                            <div class="row" style="text-align: center;">
+                                <div class="col s12 text-center">
+                                    <a class="waves-effect waves-light btn-large blue" onclick="loginByForm();">ENTRAR</a>
+                                </div>
+                            </div>      
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Libs -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+        <!-- App -->
+        <script type="text/javascript" src="js/cookie.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
