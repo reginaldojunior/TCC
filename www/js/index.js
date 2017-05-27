@@ -1,4 +1,4 @@
-var endpoint = 'http://api.trackcar.ciawn.com.br/';
+var endpoint = 'http://31.220.52.41:8000/';
 
 var app = {
     initialize: function() {
