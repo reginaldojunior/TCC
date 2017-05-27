@@ -7,7 +7,7 @@
     <author email="contato@ciawn.com.br" href="http://www.ciawn.com.br">
         Rastreio de Veiculos
     </author>
-    <content src="index.html" />
+    <content src="index2.html" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
