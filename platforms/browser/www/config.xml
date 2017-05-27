@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.tosky" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Tosky</name>
+    <name>TCC</name>
     <description>
-        Application to help car casheds.
+        Rastreio de Veiculos
     </description>
     <author email="contato@ciawn.com.br" href="http://www.ciawn.com.br">
-        Application to help car casheds.
+        Rastreio de Veiculos
     </author>
     <content src="index.html" />
     <icon src="icon.png" />
